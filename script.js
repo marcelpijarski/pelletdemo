@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    /* ===== 1. STICKY NAVBAR ===== */
+    
     const navbar = document.getElementById('navbar');
     const onScroll = () => {
         if (window.scrollY > 40) navbar.classList.add('scrolled');
