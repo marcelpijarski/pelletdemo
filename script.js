@@ -1,14 +1,4 @@
-/* ==================================================
-   ECOPELLET PREMIUM – SCRIPT
-   1. Sticky navbar
-   2. Mobile menu (hamburger)
-   3. Smooth scroll + zamykanie menu po kliknięciu
-   4. Scroll reveal animations (IntersectionObserver)
-   5. Animowane liczniki statystyk
-   6. FAQ accordion
-   7. Formularz kontaktowy – walidacja + komunikat
-   8. Rok w stopce
-   ================================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
     /* ===== 1. STICKY NAVBAR ===== */
     const navbar = document.getElementById('navbar');
@@ -18,21 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    /* ===== 2. MOBILE MENU ===== */
+    
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('open');
         navMenu.classList.toggle('open');
     });
-    /* ===== 3. ZAMYKANIE MENU PO KLIKNIĘCIU LINKU ===== */
+    
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('open');
             navMenu.classList.remove('open');
         });
     });
-    /* ===== 4. SCROLL REVEAL ===== */
+
     const revealEls = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -43,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => io.observe(el));
-    /* ===== 5. ANIMOWANE LICZNIKI ===== */
+   
     const counters = document.querySelectorAll('[data-count]');
     const counterIO = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -64,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.5 });
     counters.forEach(c => counterIO.observe(c));
-    /* ===== 6. FAQ ACCORDION ===== */
+    
     document.querySelectorAll('.faq-item').forEach(item => {
         const btn = item.querySelector('.faq-q');
         const ans = item.querySelector('.faq-a');
@@ -81,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    /* ===== 7. FORMULARZ KONTAKTOWY ===== */
+
     const form = document.getElementById('contactForm');
     const msg = document.getElementById('formMsg');
     form.addEventListener('submit', (e) => {
@@ -100,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
         setTimeout(() => { msg.textContent = ''; }, 6000);
     });
-    /* ===== 8. ROK W STOPCE ===== */
+    
     document.getElementById('year').textContent = new Date().getFullYear();
 });
 const cookieOverlay = document.getElementById("cookieOverlay");
